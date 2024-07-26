@@ -1,0 +1,7 @@
+name: Mega Games
+version: 1.0
+author: Mega
+main: fr.mega.megagames.Main
+commands:
+  duel:
+    description: Vous permez de défiez un joueur
