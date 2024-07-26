@@ -2,6 +2,7 @@ package fr.mega.megagames;
 
 import fr.mega.megagames.commands.CommandDuel;
 import fr.mega.megagames.commands.CommandDuelAccept;
+import fr.mega.megagames.commands.CommandDuelDeny;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,6 +19,7 @@ public final class Main extends JavaPlugin implements Listener {
         System.out.println("Le plugin vient de démmarer");
         getCommand("duel").setExecutor(new CommandDuel());
         getCommand("accept").setExecutor(new CommandDuelAccept());
+        getCommand("refuser").setExecutor(new CommandDuelDeny());
         getServer().getPluginManager().registerEvents(new CommandDuel(), this);
     }
 

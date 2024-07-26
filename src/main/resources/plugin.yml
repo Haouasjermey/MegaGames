@@ -5,3 +5,7 @@ main: fr.mega.megagames.Main
 commands:
   duel:
     description: Vous permez de défiez un joueur
+  accept:
+    description: La mère à mega
+  refuser:
+    description: Le papa à mega
