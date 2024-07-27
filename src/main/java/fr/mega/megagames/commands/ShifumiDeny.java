@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandDuelDeny implements CommandExecutor {
+public class ShifumiDeny implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender Sender, Command command, String s, String[] strings) {
         if (Sender instanceof Player) {

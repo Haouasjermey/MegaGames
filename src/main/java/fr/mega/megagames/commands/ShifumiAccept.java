@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CommandDuelAccept implements CommandExecutor{
+public class ShifumiAccept implements CommandExecutor{
 
     @Override
     public boolean onCommand(CommandSender Sender, Command msg, String s, String[] strings) {

@@ -1,16 +1,12 @@
 package fr.mega.megagames;
 
 import fr.mega.megagames.commands.CommandDuel;
-import fr.mega.megagames.commands.CommandDuelAccept;
-import fr.mega.megagames.commands.CommandDuelDeny;
-import org.bukkit.entity.Player;
+import fr.mega.megagames.commands.ShifumiAccept;
+import fr.mega.megagames.commands.ShifumiDeny;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.fusesource.jansi.AnsiConsole;
 
 public final class Main extends JavaPlugin implements Listener {
 
@@ -18,8 +14,8 @@ public final class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         System.out.println("Le plugin vient de démmarer");
         getCommand("duel").setExecutor(new CommandDuel());
-        getCommand("accept").setExecutor(new CommandDuelAccept());
-        getCommand("refuser").setExecutor(new CommandDuelDeny());
+        getCommand("accept").setExecutor(new ShifumiAccept());
+        getCommand("refuser").setExecutor(new ShifumiDeny());
         getServer().getPluginManager().registerEvents(new CommandDuel(), this);
     }
 

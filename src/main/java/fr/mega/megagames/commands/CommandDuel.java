@@ -1,5 +1,6 @@
 package fr.mega.megagames.commands;
 
+import fr.mega.megagames.ItemBuilder;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -7,59 +8,53 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class CommandDuel implements CommandExecutor, Listener {
 
     @Override
     public boolean onCommand(CommandSender Sender, Command cmd, String msg, String[] strings) {
-        if (Sender instanceof Player){
-            if (msg.equalsIgnoreCase("duel")) {
-                if (strings[0] != null) {
-                    Player player = Bukkit.getPlayer(strings[0]);
-                    if (player != null) {
-                        //if (player != Sender) {
-                            ((Player) Sender).openInventory(Duel((Player) Sender, player.getName()));
-                        //} else  {
-                        //Sender.sendMessage("§aVous ne pouvez pas vous défiez vous même !");
-                    }
-                }
-            }
+        if (Sender instanceof Player) {
 
-            if (msg.equalsIgnoreCase("accept")){
-                if (strings[0] != null) {
-                    Player player = Bukkit.getPlayer(strings[0]);
-                    if (player != null) {
-                        Sender.sendMessage("Vous venez d'§aaccepter §rla demande de duel de §c"+player.getName());
-                        player.sendMessage(Sender.getName()+"viens d'§aaccepter §rvotre demande de duel");
-                    }
-                }
-            }
-            if (msg.equalsIgnoreCase("refuser")){
-                if (strings[0] != null) {
-                    Player player = Bukkit.getPlayer(strings[0]);
-                    if (player != null) {
-                        Sender.sendMessage("Vous venez de §crefuser §rla demande de duel de §c"+player.getName());
-                        player.sendMessage(Sender.getName()+"viens de §crefuser §rvotre demande de duel");
-                    }
+            if (strings[0] != null) {
+                Player player = Bukkit.getPlayer(strings[0]);
+                if (player != null) {
+                    //if (player != Sender) {
+                    ((Player) Sender).openInventory(Duel((Player) Sender, player.getName()));
+                    //} else  {
+                    //Sender.sendMessage("§aVous ne pouvez pas vous défiez vous même !");
                 }
             }
         }
+
+
         return false;
     }
+
+
+
 
     private Inventory Duel(Player p, String targetName){
 
         Inventory inv = Bukkit.createInventory(p, 27, "§cDuel "+targetName);
-        inv.setItem(12, new ItemStack(Material.SHEARS));
+        inv.setItem(12, new ItemBuilder(Material.SHEARS).setName("Shifumi").addEnchant(Enchantment.ARROW_DAMAGE, 1).hideAllAttributes().toItemStack());
+
 
         return inv;
+
+
+
+
+
     }
+
 
     @EventHandler
     private void OnInventoryClick(InventoryClickEvent event){
