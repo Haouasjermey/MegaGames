@@ -14,8 +14,8 @@ public final class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         System.out.println("Le plugin vient de démmarer");
         getCommand("duel").setExecutor(new CommandDuel());
-        getCommand("accept").setExecutor(new ShifumiAccept());
-        getCommand("refuser").setExecutor(new ShifumiDeny());
+        getCommand("shifumiaccept").setExecutor(new ShifumiAccept());
+        getCommand("shifumirefuser").setExecutor(new ShifumiDeny());
         getServer().getPluginManager().registerEvents(new CommandDuel(), this);
     }
 

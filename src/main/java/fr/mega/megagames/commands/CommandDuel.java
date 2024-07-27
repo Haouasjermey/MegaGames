@@ -14,8 +14,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class CommandDuel implements CommandExecutor, Listener {
 
@@ -64,9 +62,9 @@ public class CommandDuel implements CommandExecutor, Listener {
                 Player p1 = Bukkit.getPlayer(targetName);
                 if (p1 != null) {
                     TextComponent textaccept = new TextComponent("§aACCEPTER");
-                    textaccept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/accept "+event.getWhoClicked()));
+                    textaccept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/shifumiaccept "+event.getWhoClicked()));
                     TextComponent textdeni = new TextComponent("§c   REFUSER");
-                    textdeni.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/refuser "+event.getWhoClicked()));
+                    textdeni.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,"/shifumirefuser "+event.getWhoClicked()));
                     TextComponent text = new TextComponent(event.getWhoClicked().getName()+" vous a défié dans un shifumi.\n\n");
                     text.addExtra(textaccept);
                     text.addExtra(textdeni);
